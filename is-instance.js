@@ -1,7 +1,6 @@
 var Memo = function (action) {
   var args = [].slice.call(arguments, 1)
-    , value = undefined
-
+    , value
   return function () {
     if (value) return value
     return (value = action.apply(action, args))
@@ -13,8 +12,9 @@ function NoDefault () { return NoDefault }
 var GenerateModel = function (classyClass) {
   var base = classyClass()
   Object.keys(base).forEach(function (prop) {
-    if (base[prop] === undefined)
+    if (base[prop] == null) {
       base[prop] = NoDefault
+    }
   })
   return base
 }
