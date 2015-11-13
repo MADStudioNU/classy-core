@@ -1,7 +1,7 @@
-var ToString = function (self) {
+var toString = function (self) {
   var result = []
-		, name
-		, type
+    , name
+    , type
     , title
 
   for (var prop in self) {
@@ -16,17 +16,23 @@ var ToString = function (self) {
   if (name != null && type != null) {
     title = type + ' : ' + name
   } else {
-		title = name != null
+    title = name != null
             ? name
             : type
   }
   
-	return [
+  return [
     title
     , '{'
-		, result.map(function (p) { return p.join(' : ') }).join(', ')
-	  , '}'
+    , result.map(function (p) { return p.join(' : ') }).join(', ')
+    , '}'
   ].join(' ')
+}
+
+function ToString (inst) {
+  inst.toString = function () {
+    return toString.call(inst, inst)
+  }
 }
 
 module.exports = ToString
