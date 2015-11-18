@@ -2,7 +2,7 @@ var NoDefault = require('./lib/no-default')
   , ModelGenerator = require('./lib/model-generator')
   , Comparator = require('./lib/class-comparator')
   , compare = Comparator(function (model, other) {
-    return typeof(model) === typeof(other)
+    return model === other
   })
 
 var IsInstance = function (classyClass) {

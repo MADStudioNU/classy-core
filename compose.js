@@ -1,11 +1,17 @@
-var Compose = function (otherClass) {
+var compose = function (otherClass) {
   var args = [].slice.call(arguments, 1)
-  var base = otherClass.apply(null, args)
+    , base = otherClass.apply(otherClass, args)
 
   return function (inst) {
     Object.keys(base).forEach(function (prop) {
       inst[prop] = base[prop]
     })
+  }
+}
+
+var Compose = function (classyClass) {
+  classyClass.compose = function () {
+    return classyClass.use(compose.apply(compose, arguments))
   }
 }
 
