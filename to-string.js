@@ -20,7 +20,7 @@ var toString = function (self) {
             ? name
             : type
   }
-  
+
   return [
     title
     , '{'
@@ -29,9 +29,9 @@ var toString = function (self) {
   ].join(' ')
 }
 
-function ToString (inst) {
-  inst.toString = function () {
-    return toString.call(inst, inst)
+function ToString (obj) {
+  obj.toString = function () {
+    return toString.call(obj, obj)
   }
 }
 
