@@ -8,7 +8,7 @@ var NoDefault = require('./lib/no-default')
 var IsInstance = function (classyClass) {
   var Model = ModelGenerator(classyClass)
 
-  classyClass.isInstance = function (someObject) {
+  classyClass.equals = function (someObject) {
     return compare(Model(), someObject)
   }
 }
