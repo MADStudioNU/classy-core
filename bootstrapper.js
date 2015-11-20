@@ -1,7 +1,7 @@
 var ClassyCore = {
   Compose: require('./compose'),
+  Equals : require('./equals'),
   IsInstance: require('./is-instance'),
-  Model: require('./model'),
   ToString: require('./to-string')
 }
 
